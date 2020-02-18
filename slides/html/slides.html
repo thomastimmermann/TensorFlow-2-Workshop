@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Thomas Timmermann codecentric">
+  <meta name="dcterms.date" content="2020-02-18">
+  <title>TensorFlow 2 Workshop</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../presentations/templates/reveal.js//css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../../presentations/templates/reveal.js//css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="../../sources/css/codecentric.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../presentations/templates/reveal.js//css/print/pdf.css' : '../../../presentations/templates/reveal.js//css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../../../presentations/templates/reveal.js//lib/js/html5shiv.js"></script>
+  <![endif]-->
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">TensorFlow 2 Workshop</h1>
+  <p class="author">Thomas Timmermann<br><strong>codecentric</strong></p>
+  <p class="date">February 18, 2020</p>
+</section>
+
+<section>
+<section id="start" class="title-slide slide level1">
+<h1>Let’s get started!</h1>
+
+</section>
+<section id="introduction" class="slide level2">
+<h2>Introduction round</h2>
+<div class="row" data-widths="1:1" data-align="center" style=";display:flex;align-items:center">
+<div class="col" style=";flex: 50%">
+<p><img data-src="img/38e885c47d1d1f71eb7aaba9e9eba28750886837.jpg" style="width:80.0%" /></p>
+</div>
+<div style=";flex: 50%">
+<p><span class="h3">Thomas Timmermann</span></p>
+<ul>
+<li class="fragment"><strong>Mathematician</strong><br />
+PhD + Habilitation<br />
+16 years</li>
+<li class="fragment"><strong>Data Scientist</strong><br />
+codecentric 1.4 years<br />
+</li>
+<li class="fragment">father of three kids<br />
+(all ill last week…)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="had-no-time-for-funny-images." class="slide level2" data-background-image="img/no_memes.jpg" style="background: transparent">
+<h2 data-background-image="img/no_memes.jpg" style="background: transparent">Had no time for funny images.</h2>
+</section>
+<section id="plan" class="slide level2">
+<h2>Our plan for today</h2>
+<p><span class="h3">What is the core of TensorFlow?</span></p>
+<p>hands-on: <strong>online linear regression</strong></p>
+<p><span class="h3">Building neural networks with keras</span></p>
+<p>hands-on: <strong>classifying digits</strong> and <strong>matching them</strong></p>
+<p><span class="h3">TensorFlow Eco-System Goodies</span></p>
+<p>hands-on: <strong>titanic survivals</strong></p>
+</section>
+<section id="setup" class="slide level2">
+<h2>Setting up the environment</h2>
+<p><span class="h3"><em>No… I haven’t set up anything yet:</em></span></p>
+<pre class="console"><code>git clone https://github.com/thomastimmermann/TensorFlow-2-Workshop.git
+cd TensorFlow-2-Workshop
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip setuptools
+pip install -r requirements.txt</code></pre>
+<p><span class="h3"><em>I did all that… but not this morning:</em></span></p>
+<pre class="console"><code>cd TensorFlow-2-Workshop
+git pull
+source .venv/bin/activate
+pip install -r requirements.txt</code></pre>
+<div class="h3">
+<p>…or go to the repo website and click <a href="https://mybinder.org/v2/gh/thomastimmermann/TensorFlow-2-Workshop/master"><img data-src="img/6d52616db8c85286870de3cf0a4c8d54044a4fd0.svg" style="width:12.0%" alt="Binder" /></a></p>
+</div>
+</section>
+</section>
+<section>
+<section id="intro" class="title-slide slide level1">
+<h1>TensorFlow in 10 Minutes…</h1>
+
+</section>
+<section id="tensorflow" class="slide level2">
+<h2>The Core of TensorFlow</h2>
+<div class="row" data-widths="5:5:5" data-align="top" style="font-size: x-large;display:flex;align-items:top">
+<div class="fragment" style=";flex: 33%">
+<p><span class="h3">1. Tensors</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>scalars</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>vectors</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>matrices</td>
+</tr>
+<tr class="even">
+<td><strong>n</strong></td>
+<td><strong>tensors</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment" style=";flex: 33%">
+<p><span class="h3">2. Flow</span></p>
+<p><img data-src="img/23147aa4dd40f92e2b0152501075a4431cf638ab.svg" style="width:40.0%" /></p>
+</div>
+<div class="fragment" style=";flex: 33%">
+<p><span class="h3">3. Gradients</span></p>
+<p>implement chain rule</p>
+<p><span class="math inline">\(\displaystyle \frac{\partial y}{\partial \alpha} = \frac{\partial y}{\partial p} \cdot \frac{\partial p}{\partial \alpha}\)</span></p>
+<p>via <strong>back-propagation</strong></p>
+</div>
+</div>
+<p><span class="h3 fragment nonincremental"><span class="math inline">\(\to\)</span> optimize ml/dl models via gradient descent, efficiently</span></p>
+</section>
+<section id="ecosystem" class="slide level2">
+<h2>The TensorFlow Eco-System</h2>
+<div class="row" data-widths="1:1:1" data-align="top" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 33%">
+<p><span class="h3">Distributed<br />
+Execution Engine</span></p>
+<ul>
+<li>CPUs, GPUs, TPUs</li>
+<li>Linux, iOS, Windows, Android</li>
+</ul>
+</div>
+<div class="fragment" style=";flex: 33%">
+<p><span class="h3">low-level API</span></p>
+<ul>
+<li>tensors and gradients</li>
+<li>dl basics</li>
+<li>I/O and preprocessing</li>
+<li>deployment, logging…</li>
+</ul>
+</div>
+<div class="fragment" style=";flex: 33%">
+<p><span class="h3">high-level API</span></p>
+<ul>
+<li>pre-built estimators</li>
+<li>keras for dl</li>
+</ul>
+</div>
+</div>
+<div class="row" data-widths="1:1" data-align="top" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 50%">
+<p><span class="h3">TensorFlow Extended</span></p>
+<ul>
+<li>data pipelines</li>
+<li>data validation</li>
+<li>model analysis</li>
+<li>deployment</li>
+</ul>
+</div>
+<div class="fragment" style=";flex: 50%">
+<p><span class="h3">TFLite</span></p>
+<p>runs on mobile/edge</p>
+<p><span class="h3">TensorFlow.js</span></p>
+<p>runs in the browser</p>
+<p><span class="h3">…</span></p>
+</div>
+</div>
+</section>
+<section id="so-why-does-tensorflow-not-rule-the-world" class="slide level2">
+<h2>So, why does TensorFlow not rule the world?</h2>
+<p>this is what happened in <strong>TensorFlow 1.xx</strong>…</p>
+<div class="row" data-widths="2:3" data-align="center" style=";display:flex;align-items:center">
+<div class="col" style=";flex: 40%">
+<p><img data-src="img/23147aa4dd40f92e2b0152501075a4431cf638ab.svg" style="width:40.0%" /></p>
+</div>
+<div class="col" style=";flex: 60%">
+<ul>
+<li class="fragment"><p>code creates <strong>computation graph</strong></p>
+<pre class="python"><code>import tensorflow as tf
+
+x, alpha, beta = 2, 3, 4
+p = tf.multiply(x, alpha, name=&#39;p&#39;)
+y = tf.add(p, beta, name=&#39;y&#39;)</code></pre></li>
+<li class="fragment"><p>computation = <strong>run</strong> the graph</p>
+<pre class="python"><code>with tf.Session() as sess:
+    sess.run(y)</code></pre></li>
+</ul>
+</div>
+</div>
+<p><span class="fragment nonincremental"><strong><span class="math inline">\(\to\)</span> poor debugging, slow prototyping</strong></span>, <span class="fragment nonincremental primary"><strong>research turns to pytorch</strong></span></p>
+</section>
+<section id="how-will-tensorflow-2.0-win-back" class="slide level2">
+<h2>How will TensorFlow 2.0 win back?</h2>
+<div class="row" data-widths="10:1:10" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 47%">
+<p><span class="h3">eager execution by default</span></p>
+<pre class="python"><code>import tensorflow as tf
+
+
+def linear(x, alpha, beta):
+    return x * alpha + beta</code></pre>
+<p>computes the result <strong>immediately</strong></p>
+<p><span class="fragment nonincremental"><span class="math inline">\(\rightarrow\)</span> <strong>fast prototyping, easy debugging</strong></span></p>
+</div>
+<div class="col" style=";flex: 4%">
+
+</div>
+<div class="fragment" style=";flex: 47%">
+<p><span class="h3">graph mode if wantd</span></p>
+<pre class="python"><code>import tensorflow as tf
+
+@tf.function
+def linear(x, alpha, beta):
+    return x * alpha + beta</code></pre>
+<p>creates a <strong>computation graph</strong> for later runs</p>
+<p><span class="math inline">\(\rightarrow\)</span> <strong>optimized performance</strong></p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="basics" class="title-slide slide level1">
+<h1><em>Hands-on #1:</em> <br> Fun with tensors and gradient</h1>
+
+</section>
+<section id="linreg_task" class="slide level2">
+<h2>The simplest ML model: linear regression</h2>
+<div class="row" data-widths="1:1" data-align="center" style=";display:flex;align-items:center">
+<div class="col" style=";flex: 50%">
+<p><img data-src="img/693654d874947f550cedb7b0e61301535d3358da.svg" /></p>
+</div>
+<div class="col" style=";flex: 50%">
+<dl>
+<dt class="fragment">Data</dt>
+<dd class="fragment">samples <span class="math inline">\((x_1, y_1), \ldots, (x_n,y_n)\)</span>
+</dd>
+<dt class="fragment">Linear Model</dt>
+<dd class="fragment">parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span><br />
+predictions <span class="math inline">\(\tilde y_i = \alpha x_i + \beta\)</span>
+</dd>
+<dt class="fragment">Task</dt>
+<dd class="fragment">minimize loss <span class="math inline">\(\sum_i \left(\tilde y_i- y_i\right)^2\)</span>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="linreg_solution" class="slide level2">
+<h2>Online learning via gradient descent</h2>
+<div class="row" data-widths="1:1" data-align="center" style=";display:flex;align-items:center">
+<div class="col fragment" style=";flex: 50%">
+<ol type="1">
+<li><p>choose <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> randomly</p></li>
+<li><p>repeat <span class="primary"><strong>gradient descent</strong></span> steps</p>
+<p>compute</p>
+<ul>
+<li><strong>predictions</strong> <span class="math inline">\(\tilde y_i = \alpha x_i + \beta\)</span></li>
+<li><strong>loss</strong> <span class="math inline">\(L=\sum_i (y_i - \tilde y_i)^2\)</span></li>
+<li><strong>gradients</strong> <span class="math inline">\(\partial L/\partial \alpha\)</span> and <span class="math inline">\(\partial L/\partial \beta\)</span></li>
+</ul>
+<p>update</p>
+<ul>
+<li><strong>parameter</strong> <span class="math inline">\(\alpha \leftarrow \alpha - \eta \cdot \partial L/\partial \alpha\)</span><br />
+</li>
+<li><strong>parameter</strong> <span class="math inline">\(\beta \leftarrow \beta - \eta \cdot \partial L/\partial \beta\)</span></li>
+</ul></li>
+</ol>
+<p>:</p>
+</div>
+<div class="col fragment" style=";flex: 50%">
+<p><img data-src="img/7a545cce6fb81b3919f8ae1fdf43e56f4fa3b227.png" /></p>
+<p><span style="font-size: 50%">easyai.tech</span></p>
+</div>
+</div>
+</section>
+<section id="tensorboard" class="slide level2">
+<h2>Logging progress with TensorBoard</h2>
+<div class="row" data-widths="6:1:6" data-align="center" style=";display:flex;align-items:center">
+<div class="col fragment" style=";flex: 46%">
+<p><img data-src="img/cb282d25c9e870354a8750c1ca6dc6ba435f8456.png" /></p>
+</div>
+<div class="col" style=";flex: 7%">
+
+</div>
+<div class="col fragment" style=";flex: 46%">
+<p><img data-src="img/cf04c680e2d8b2e7be808ebe1df3b0c6052028d8.svg" /></p>
+</div>
+</div>
+</section>
+<section id="core_api" class="slide level2">
+<h2>TensorFlow Core Packages</h2>
+<div style="font-size: 85%">
+<dl>
+<dt class="fragment">tensor operations, gradients and other core functionality</dt>
+<dd class="fragment">available as top-level elements in <code>tensorflow</code>
+</dd>
+<dt class="fragment">extended math and signal processing</dt>
+<dd class="fragment"><code>math</code>, <code>linalg</code>, <code>signal</code>, <code>random</code>, <code>bitwise</code>
+</dd>
+<dt class="fragment">I/O and preprocessing</dt>
+<dd class="fragment"><code>data</code>, <code>io</code>, <code>queue</code>, <code>image</code>, <code>strings</code>
+</dd>
+<dt class="fragment">special data structures</dt>
+<dd class="fragment"><code>sparse</code>, <code>ragged</code>, <code>sets</code>
+</dd>
+<dt class="fragment">low-level and high-level deep learning API</dt>
+<dd class="fragment"><code>nn</code>, <code>rnn</code>, <code>train</code> and <code>estimator</code>, <code>feature_column</code>, <code>keras</code>
+</dd>
+<dt class="fragment">deployment and optimization</dt>
+<dd class="fragment"><code>saved_model</code>, <code>distribute</code>, <code>autograph</code>, <code>quantization</code>, <code>graph_util</code>
+</dd>
+<dt class="fragment">logging/visualization</dt>
+<dd class="fragment"><code>summary</code>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+<section>
+<section id="keras" class="title-slide slide level1">
+<h1>tf.keras in 10 Minutes…</h1>
+
+</section>
+<section id="keras_history" class="slide level2">
+<h2>From Keras to tf.keras</h2>
+<div class="row" data-widths="2:5" data-align="center" style=";display:flex;align-items:center">
+<div class="col" style=";flex: 28%">
+<p><img data-src="img/6a2e8c901196e28ece84471202d7b3a6754746fe.png" /></p>
+</div>
+<div class="col" style=";flex: 71%">
+<dl>
+<dt class="fragment">05/2015</dt>
+<dd class="fragment"><span class="primary"><strong>Keras</strong></span> as a <strong>high-level API</strong> to Torch, Theano, Caffee
+</dd>
+<dt class="fragment">09/2016</dt>
+<dd class="fragment"><span class="primary"><strong>tensorflow</strong></span> becomes <strong>default backend</strong> of Keras
+</dd>
+<dt class="fragment">11/2017</dt>
+<dd class="fragment"><span class="primary"><strong>tf.keras</strong></span> <strong>integrates</strong> Keras API into tensorflow
+</dd>
+<dt class="fragment">09/2019</dt>
+<dd class="fragment"><span class="primary"><strong>tensorflow 2.0</strong></span> with tf.keras as <strong>official high-level API</strong>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="keras_three_steps" class="slide level2">
+<h2>Build and train a model with tf.keras</h2>
+<div class="fragment">
+<p><span class="primary"><strong>Build a model</strong></span><br />
+as a <strong>stack</strong> or <strong>graph</strong> of <strong>layers</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\downarrow\)</span></p>
+<p><span class="primary"><strong>Configure training</strong></span><br />
+choosing the <strong>loss function</strong> and <strong>optimizer</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\downarrow\)</span></p>
+<p><span class="primary"><strong>Train the model</strong></span><br />
+with your <strong>training data</strong></p>
+</div>
+</section>
+<section id="keras_build" class="slide level2">
+<h2><em>Step 1:</em> Build a model..</h2>
+<ul>
+<li class="fragment"><p>as a <span class="primary"><strong>stack of layers</strong></span> using <code>tf.keras.Sequential</code></p>
+<p><img data-src="img/6de1bd2bf6a55cac0439b767caabc9d2eb03972c.svg" /></p></li>
+<li class="fragment"><p>or as a <span class="primary"><strong>graph of layers</strong></span> using <code>tf.keras.Model</code></p>
+<p><img data-src="img/2615d400d62edf37affcd32c9e55e59bda05ea98.svg" /></p></li>
+</ul>
+</section>
+<section id="keras_layers" class="slide level2">
+<h2>…using a wide range of layers</h2>
+<p>for example</p>
+<table>
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 46%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="primary fragment"><strong>tensor operations</strong></span></td>
+<td style="text-align: left;"><code>Add</code>, <code>Multiply</code>, <code>Concatenate</code>, …</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="primary fragment"><strong>basic layers</strong></span></td>
+<td style="text-align: left;"><code>Dense</code>, <code>Activation</code>, <code>Lambda</code>, …</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="primary fragment"><strong>convolutional layers</strong></span></td>
+<td style="text-align: left;"><code>Conv1D</code>, <code>Conv2D</code>, …, <code>MaxPool1D</code>, …</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="primary fragment"><strong>recurrent layers</strong></span></td>
+<td style="text-align: left;"><code>RNN</code>, <code>GRU</code>, <code>LSTM</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="primary fragment"><strong>regularizing layers</strong></span></td>
+<td style="text-align: left;"><code>Dropout</code>, <code>BatchNormalization</code>, …</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="keras_compile" class="slide level2">
+<h2><em>Step 2:</em> Configure the training of your model</h2>
+<p>choosing</p>
+<ul>
+<li class="fragment"><p>a <span class="primary"><strong>loss function</strong></span> telling <strong>what</strong> to optimize</p>
+<p><img data-src="img/e575d9c378d2b90a98adbd2cc342dd62b0ffc2ab.svg" /></p></li>
+<li class="fragment"><p>an <span class="primary"><strong>optimizer</strong></span> telling <strong>how</strong> to optimize</p>
+<div style="text-align:center">
+<p><span class="math inline">\(\displaystyle w_i^{t+1} = w_i^{t} -\)</span> <span class="primary"><span class="math inline">\(\displaystyle{\eta}(w^0,\ldots,w^t)\)</span></span> <span class="math inline">\(\displaystyle\frac{\partial \mathsf{loss}}{\partial w_i}\)</span></p>
+</div></li>
+</ul>
+</section>
+<section id="step-3-train-your-model" class="slide level2">
+<h2><em>Step 3:</em> Train your model</h2>
+<p>feeding training data in <strong>batches</strong> over several <strong>epochs</strong></p>
+<div class="row" data-widths="1:1" style=";display:flex;align-items:top">
+<div class="col" style=";flex: 50%">
+<p><img data-src="img/a5158de65a6a3f453840dc01bf5abe0b9c30c38e.svg" /></p>
+</div>
+<div class="col" style=";flex: 50%">
+<p><img data-src="img/bc04c53febcd21a5c0c0d75c577f135617745845.svg" /></p>
+</div>
+</div>
+<!-- ## How-To: Sequential models with Keras {#howto-sequential} -->
+<!-- :::{.row widths=1:6} -->
+<!-- :::{.col} -->
+<!-- :::  -->
+<!-- :::{.col} -->
+<!-- :::{.fragment .nonincremental} -->
+<!-- ``` {.python} -->
+<!-- from keras import layers, models -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::{.fragment .nonincremental} -->
+<!-- ```  {.python}  -->
+<!-- model = models.Sequential([ -->
+<!--             layers.Dense(128, activation='relu'), -->
+<!--         ], input_shape=(max_len,)) -->
+<!-- model.add(layers.Dense(10, activation='softmax')) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::{.fragment .nonincremental} -->
+<!-- ```  {.python}  -->
+<!-- model.compile(optimizer="Adam", loss="categorical_crossentropy") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::{.fragment .nonincremental} -->
+<!-- ``` {.python}  -->
+<!-- history = model.fit(X, y, epochs=10, validation_split=0.2) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::{.fragment .nonincremental} -->
+<!-- ``` {.python}  -->
+<!-- y_pred = model.predict(X_test) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+</section>
+</section>
+<section>
+<section id="hands_on_keras" class="title-slide slide level1">
+<h1><em>Hands-on #2:</em> <br> Fun with Keras and digits</h1>
+
+</section>
+<section id="keras_problems" class="slide level2">
+<h2>Task #1: Classifying Digits</h2>
+<p><img data-src="img/0ab3b8540d641340ee18c9e9834ef3cacde48659.svg" /></p>
+<div class="fragment">
+<pre class="python"><code>from tensorflow.keras import layers, Sequential
+
+model = Sequential(
+    [
+        layers.Input((28, 28, 1)),
+        layers.Flatten(),
+        layers.Dense(10, activation=&quot;softmax&quot;),
+    ]
+)
+model.compile(optimizer=&quot;adam&quot;, loss=&quot;categorical_crossentropy&quot;)
+history = model.fit(X, y, epochs=10, batch_size=32, validation_split=0.2)</code></pre>
+</div>
+</section>
+<section id="keras_match" class="slide level2">
+<h2>Task 2: Matching Digits</h2>
+<p><img data-src="img/ecb7c6c82f4e72851907c4e2372e2c7049a45da1.svg" /></p>
+</section>
+<section id="using-functional-api-to-build-models" class="slide level2">
+<h2>Using functional API to build models</h2>
+<p><img data-src="img/ee8f5d1cd680778935a165569872d2552538768b.svg" /></p>
+<div class="fragment">
+<pre class="python"><code>from tensorflow.keras import layers, Model
+
+image_1 = layers.Input((28,28,1))
+image_2 = layers.Input((28,28,1))
+
+probs_1 = classifier(image_1)
+probs_2 = classifier(image_2)
+both_probs = layers.Concatenate()([probs_1, probs_2])
+
+dense = layers.Dense(32, activation=&#39;relu&#39;)(both_probs)
+prediction = layers.Dense(1, activation=&#39;sigmoid&#39;)(dense)
+matcher = Model(inputs=[image_1, image_2], outputs=[prediction])
+</code></pre>
+</div>
+</section>
+<section id="keras_api" class="slide level2">
+<h2>tf.keras Packages</h2>
+<dl>
+<dt class="fragment">basic ingredients for building models</dt>
+<dd class="fragment"><code>layers</code>, <code>activations</code>, <code>losses</code>, <code>models</code>
+</dd>
+<dt class="fragment">control over training process</dt>
+<dd class="fragment"><code>optimizers</code>, <code>callbacks</code>, <code>metrics</code>
+</dd>
+<dt class="fragment">fine-grained control over weights</dt>
+<dd class="fragment"><code>initializers</code>, <code>regularizers</code>, <code>contraints</code>
+</dd>
+<dt class="fragment">pre-trained models (DenseNet, MobileNet, ResNet, …)</dt>
+<dd class="fragment"><code>application</code>
+</dd>
+<dt class="fragment">helpful utilities</dt>
+<dd class="fragment"><code>preprocessing</code>, <code>utils</code>, <code>estimator</code>
+</dd>
+<dt class="fragment">legacy APIs</dt>
+<dd class="fragment"><code>backends</code>, <code>datasets</code>
+</dd>
+</dl>
+</section>
+</section>
+<section>
+<section id="ecosystem" class="title-slide slide level1">
+<h1>TensorFlow<br>Eco-System<br>Goodies</h1>
+
+</section>
+<section id="tf_extended" class="slide level2">
+<h2>TensorFlow Extended</h2>
+<p>orchestrate <strong>ml pipelines</strong> with pre-built <strong>components</strong></p>
+<p><img data-src="img/3637222e93fe07b57e4f3893a6a921916cd7ab14.svg" class="fragment" /></p>
+<div class="fragment" style="font-size:0.9em">
+<p>using</p>
+<ul>
+<li class="fragment"><code>Apache Beam</code> / <code>AirFlow</code> / <code>Kubernetes</code>, and <code>ML MetaData</code> library</li>
+<li class="fragment"><code>TF Data Validation</code>, <code>TF Model Analysis</code>, <code>TF Transform</code></li>
+<li class="fragment"><code>TF Serving</code> / <code>TF Lite</code> / <code>TF.js</code></li>
+</ul>
+</div>
+</section>
+<section id="serving" class="slide level2">
+<h2>TensorFlow Serving</h2>
+<p><img data-src="img/5235d91d15701c3a09333b1613f6b91e54b36e04.svg" /></p>
+</section>
+<section id="tfdv" class="slide level2">
+<h2>TensorFlow Data Validation</h2>
+<p>allows to</p>
+<div class="row" data-widths="2:3" data-align="top" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 40%">
+<!-- ![](dot/tfdv.svg) -->
+<dl>
+<dt class="fragment"><span class="h3">generate statistics</span></dt>
+<dd class="fragment">from training data
+</dd>
+<dt class="fragment"><span class="h3">visualize statistics</span></dt>
+<dd class="fragment">in notebooks or standalone
+</dd>
+<dt class="fragment"><span class="h3">infer data schema</span></dt>
+<dd class="fragment">from statistics
+</dd>
+<dt class="fragment"><span class="h3">validate new data</span></dt>
+<dd class="fragment">against a schema
+</dd>
+</dl>
+</div>
+<div class="fragment" style=";flex: 60%">
+<p><img data-src="img/788078b7a214c1cc661061c6e9e139fc6011ee74.png" /></p>
+</div>
+</div>
+</section>
+<section id="tfma" class="slide level2">
+<h2>TensorFlow Model Analysis</h2>
+<div class="row" data-widths="2:3" data-align="center" style=";display:flex;align-items:center">
+<div style=";flex: 40%">
+<dl>
+<dt class="fragment"><span class="h3">distributed evaluation</span></dt>
+<dd class="fragment">on large validation data
+</dd>
+<dt class="fragment"><span class="h3">in-depth analysis</span></dt>
+<dd class="fragment">on <strong>slices</strong> of the data
+</dd>
+</dl>
+</div>
+<div class="fragment" style=";flex: 60%">
+<p><img data-src="img/60d26ba66d86f3c5d53bfa41d7a63cfae1052502.png" /></p>
+</div>
+</div>
+</section>
+</section>
+<section id="hands_on_titanic" class="title-slide slide level1">
+<h1><em>Hands-on #3:</em> <br> Titanic survivals</h1>
+
+</section>
+
+<section>
+<section id="appendix_basics" class="title-slide slide level1 appendix">
+<h1 class="appendix"><em>Appendix</em><br>Neural network basics</h1>
+
+</section>
+<section id="artificial" class="slide level2">
+<h2>Artificial neural networks</h2>
+<div class="row" data-widths="1:2" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 33%">
+<p><strong>nets of perceptrons</strong></p>
+<p><img data-src="img/aa257237122f2235abbdaeaf140e0e2b40117227.svg" /></p>
+</div>
+<div class="fragment" style=";flex: 66%">
+<p><strong>perceptrons</strong> = artificial neurons</p>
+<p><img data-src="img/7546a1f5a39ad60c8b0ae05792489f463727d623.svg" style="width:80.0%" /></p>
+</div>
+</div>
+</section>
+<section id="activations" class="slide level2">
+<h2>Common activation functions</h2>
+<p>purpose: induce non-linearity<br />
+(compositions of linear functions are… linear)</p>
+<div class="row" data-widths="1:1:1:1" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 25%">
+<p><strong>sigmoid</strong></p>
+<p><img data-src="img/f6213b2fda6b076c480a705d6830ce0b4141091e.svg" style="width:90.0%" /></p>
+</div>
+<div class="fragment" style=";flex: 25%">
+<p><strong>tanh</strong></p>
+<p><img data-src="img/aefe01f5d546351785fbb666f8cff7d69dfb0a44.svg" style="width:90.0%" /></p>
+</div>
+<div class="fragment" style=";flex: 25%">
+<p><strong>relu</strong></p>
+<p><img data-src="img/4440e6efaeab263644b50e9d14cbc458d674a716.svg" style="width:90.0%" /></p>
+</div>
+<div class="fragment" style=";flex: 25%">
+<p><strong>selu</strong></p>
+<p><img data-src="img/878d20e4209d67e69b7468884e7140b7a8f48cf8.svg" style="width:90.0%" /></p>
+</div>
+</div>
+</section>
+<section id="softmax" class="slide level2">
+<h2>The SoftMax activation function</h2>
+<div class="row" data-widths="5:1:5" data-align="center" style=";display:flex;align-items:center">
+<div style=";flex: 45%">
+<p><strong>vector</strong></p>
+<p><span class="math inline">\((z_1,\ldots,z_n)\)</span></p>
+</div>
+<div style=";flex: 9%">
+<p><span class="math inline">\(\mapsto\)</span></p>
+</div>
+<div style=";flex: 45%">
+<p><strong>probabilities</strong></p>
+<p><span class="math inline">\((y_1,\ldots,y_n)\)</span> where <span class="math inline">\(y_i = \frac{e^{z_i}}{\sum_j e^{z_j}}\)</span></p>
+</div>
+</div>
+</section>
+<section id="loss-classification" class="slide level2">
+<h2>Common loss functions for classification</h2>
+<div class="row" data-widths="1:1" data-align="top" style=";display:flex;align-items:top">
+<div class="col" style=";flex: 50%">
+<p><span class="h3">binary case</span></p>
+<ul>
+<li class="fragment">true value <span class="math inline">\(y\)</span> is either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span></li>
+<li class="fragment">prediction <span class="math inline">\(\tilde{y}\)</span> is a probability</li>
+</ul>
+<div class="fragment">
+<p><strong>binary crossentropy</strong></p>
+<p><img data-src="img/349360b9667b59c9fac47bddf730982c946b2f20.svg" style="width:60.0%" /></p>
+</div>
+</div>
+<div class="col" style=";flex: 50%">
+<p><span class="h3"><span class="math inline">\(n\)</span>-class case</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(y = (0,\ldots,0,1,0,\ldots,0)\)</span><br />
+indicates the true class</li>
+<li class="fragment"><span class="math inline">\(\tilde{y}=(\tilde{y}_{1},\ldots,\tilde{y}_{n})\)</span><br />
+is a probability distribution</li>
+</ul>
+<div class="fragment">
+<p><strong>categorical crossentropy</strong></p>
+<p><span class="math inline">\(-\sum_i y_i \log \tilde{y}_i\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="optimize-the-optimizer" class="slide level2">
+<h2>Optimize the optimizer!</h2>
+<div class="row" data-widths="1:1" data-align="center" style="font-size:80%;display:flex;align-items:center">
+<div class="fragment" style=";flex: 50%">
+<p><span class="h3">Momentum</span></p>
+<p><span class="math display">\[
+\begin{cases}
+\displaystyle v^{(t+1)} \!\!\!\! &amp;= \gamma \cdot v^{(t)} + \eta^{(t)} \cdot \sum_{x,y} \frac{\partial L(y,\tilde{y}(x,w^{(t)}))}{\partial w^{(t)}} \\
+\displaystyle  w^{(t+1)} \!\!\!\! &amp;= w^{(t)} - v^{(t+1)} \qquad (\gamma \approx 0.9)
+\end{cases}
+\]</span></p>
+<p>move like a <em>ball rolling downhill</em></p>
+<div class="fragment">
+<p><span class="h3">Nesterov accelerated gradients</span></p>
+<p>let the ball <em>look ahead</em></p>
+</div>
+</div>
+<div class="fragment" style=";flex: 50%">
+<p><span class="h3">Adagrad</span></p>
+<ul>
+<li><em>high</em> <span class="math inline">\(\eta\)</span> for <em>rarely</em> changed weights</li>
+<li><em>low</em> <span class="math inline">\(\eta\)</span> for <em>often</em> changed weights</li>
+</ul>
+<div class="fragment">
+<p><span class="h3">Adadelta</span></p>
+<p>same but look at <em>recent</em> changes</p>
+</div>
+<div class="fragment">
+<p><span class="h3">Adam</span></p>
+<p>think <em>Adadelta</em> with <em>momentum</em></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\Rightarrow\)</span> S. Ruder. <em>An overview of gradient descent optimization algorithms</em>. <a href="https://arxiv.org/abs/1609.04747">arXiv:1609.04747</a></p>
+</div>
+</section>
+<section id="batchnormalize" class="slide level2">
+<h2>Batch Normalization Layer</h2>
+<div class="row" data-widths="5:1:5" data-align="center" style=";display:flex;align-items:center">
+<div class="col" style=";flex: 45%">
+<p><img data-src="img/2369c3570416df83c7a5635e6fb7af91a67e1448.svg" style="width:80.0%" /></p>
+</div>
+<div class="col" style=";flex: 9%">
+<p><span class="math inline">\(\to\)</span></p>
+</div>
+<div class="col" style=";flex: 45%">
+<p><img data-src="img/043057ef6030a3a0f1b54a62e684d9f589dba2ec.svg" style="width:80.0%" /></p>
+</div>
+</div>
+<div class="row" data-widths="1:1" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>What</dt>
+<dd>for each batch, rescale input components (mean 0, variance 1)
+</dd>
+<dt>Why</dt>
+<dd>regularization
+</dd>
+</dl>
+</div>
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>When</dt>
+<dd>after convolutional layers and before activation
+</dd>
+<dt>Keras Layer</dt>
+<dd><code>BatchNormalization()</code>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="dropout" class="slide level2">
+<h2>Dropout Layer</h2>
+<p><img data-src="img/2978eabbcb0f128f09b4fe80d5507903d87bc660.svg" style="width:70.0%" /></p>
+<div class="row" data-widths="1:1" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>What</dt>
+<dd>randomly drop input components
+</dd>
+<dt>Why</dt>
+<dd>regularization
+</dd>
+</dl>
+</div>
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>When</dt>
+<dd>after dense layers
+</dd>
+<dt>Keras Layer</dt>
+<dd><code>Dropout(rate=0.5)</code>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="pooling" class="slide level2">
+<h2>Pooling layers</h2>
+<p><img data-src="img/9cee7744fc526cb5db9ec609cdcf17b8b5739d65.svg" style="width:80.0%" /></p>
+<div class="row" data-widths="1:1" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>What</dt>
+<dd>sliding-window aggregation
+</dd>
+<dt>Why</dt>
+<dd>get macroscopic features
+</dd>
+</dl>
+</div>
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>When</dt>
+<dd>after convolutional layers
+</dd>
+<dt>Keras</dt>
+<dd><code>MaxPooling1D()</code>, <code>AveragePooling1D()</code>, …
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="conv2d" class="slide level2">
+<h2>2D-Convolutional layers</h2>
+<p><img data-src="img/a9b865527d63fbca2194c611c5491bade51b6837.svg" style="width:40.0%" /></p>
+<div class="row" data-widths="1:1" style=";display:flex;align-items:top">
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>What</dt>
+<dd>sliding-window perceptron
+</dd>
+<dt>Why</dt>
+<dd>extract patterns
+</dd>
+</dl>
+</div>
+<div class="fragment" style=";flex: 50%">
+<dl>
+<dt>Keras Layer</dt>
+<dd><code>Conv2D(filters, kernel_size, strides,...)</code>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="../../../presentations/templates/reveal.js//lib/js/head.min.js"></script>
+  <script src="../../../presentations/templates/reveal.js//js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        math: {
+            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process',
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../../../presentations/templates/reveal.js//lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../../presentations/templates/reveal.js//plugin/zoom-js/zoom.js', async: true },
+          { src: '../../../presentations/templates/reveal.js//plugin/math/math.js', async: true },
+          { src: '../../../presentations/templates/reveal.js//plugin/notes/notes.js', async: true },
+            { src: '../../../presentations/templates/reveal.js//plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+    <link rel="stylesheet" href="../../../presentations/templates/reveal.js//lib/css/solarized-light.css" id="theme">
+    </body>
+</html>

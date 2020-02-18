@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="509px" preserveAspectRatio="none" style="width:957px;height:509px;" version="1.1" viewBox="0 0 957 509" width="957px" zoomAndPan="magnify"><defs/><g><rect fill="#F4F4F4" height="494.9997" style="stroke: #F4F4F4; stroke-width: 1.0;" width="238.5" x="379" y="4"/><text fill="#536366" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="104" x="446.25" y="22.8">deployment</text><rect fill="#D3D3D3" height="207.9999" style="stroke: #536366; stroke-width: 1.0;" width="10" x="428" y="144.9999"/><line style="stroke: #536366; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="149" x2="149" y1="102" y2="408.9998"/><line style="stroke: #536366; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="433" x2="433" y1="102" y2="408.9998"/><line style="stroke: #536366; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="558.5" x2="558.5" y1="102" y2="408.9998"/><line style="stroke: #536366; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="887.5" x2="887.5" y1="102" y2="408.9998"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="42" x="125" y="96.8">User</text><ellipse cx="149" cy="25" fill="#FFFFFF" rx="8" ry="8" style="stroke: #536366; stroke-width: 2.0;"/><path d="M149,33 L149,60 M136,41 L162,41 M149,60 L136,75 M149,60 L162,75 " fill="none" style="stroke: #536366; stroke-width: 2.0;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="42" x="125" y="426.7998">User</text><ellipse cx="149" cy="441.9997" fill="#FFFFFF" rx="8" ry="8" style="stroke: #536366; stroke-width: 2.0;"/><path d="M149,449.9997 L149,476.9997 M136,457.9997 L162,457.9997 M149,476.9997 L136,491.9997 M149,476.9997 L162,491.9997 " fill="none" style="stroke: #536366; stroke-width: 2.0;"/><text fill="#00AED2" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="22" x="383" y="96.8">TF</text><text fill="#00AED2" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="0" x="410" y="96.8"/><text fill="#00AED2" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="67" x="410" y="96.8">Serving</text><ellipse cx="433" cy="62" fill="#D3D3D3" rx="12" ry="12" style="stroke: #536366; stroke-width: 2.0;"/><line style="stroke: #536366; stroke-width: 2.0;" x1="421" x2="445" y1="76" y2="76"/><text fill="#00AED2" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="22" x="383" y="426.7998">TF</text><text fill="#00AED2" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="0" x="410" y="426.7998"/><text fill="#00AED2" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="67" x="410" y="426.7998">Serving</text><ellipse cx="433" cy="447.9997" fill="#D3D3D3" rx="12" ry="12" style="stroke: #536366; stroke-width: 2.0;"/><line style="stroke: #536366; stroke-width: 2.0;" x1="421" x2="445" y1="461.9997" y2="461.9997"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="103" x="504.5" y="96.8">File System</text><path d="M541,42 C541,32 559,32 559,32 C559,32 577,32 577,42 L577,68 C577,78 559,78 559,78 C559,78 541,78 541,68 L541,42 " fill="#D3D3D3" style="stroke: #536366; stroke-width: 1.5;"/><path d="M541,42 C541,52 559,52 559,52 C559,52 577,52 577,42 " fill="none" style="stroke: #536366; stroke-width: 1.5;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="103" x="504.5" y="426.7998">File System</text><path d="M541,441.9997 C541,431.9997 559,431.9997 559,431.9997 C559,431.9997 577,431.9997 577,441.9997 L577,467.9997 C577,477.9997 559,477.9997 559,477.9997 C559,477.9997 541,477.9997 541,467.9997 L541,441.9997 " fill="#D3D3D3" style="stroke: #536366; stroke-width: 1.5;"/><path d="M541,441.9997 C541,451.9997 559,451.9997 559,451.9997 C559,451.9997 577,451.9997 577,441.9997 " fill="none" style="stroke: #536366; stroke-width: 1.5;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="122" x="823.5" y="96.8">Data Scientist</text><ellipse cx="887.5" cy="25" fill="#FFFFFF" rx="8" ry="8" style="stroke: #536366; stroke-width: 2.0;"/><path d="M887.5,33 L887.5,60 M874.5,41 L900.5,41 M887.5,60 L874.5,75 M887.5,60 L900.5,75 " fill="none" style="stroke: #536366; stroke-width: 2.0;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="122" x="823.5" y="426.7998">Data Scientist</text><ellipse cx="887.5" cy="441.9997" fill="#FFFFFF" rx="8" ry="8" style="stroke: #536366; stroke-width: 2.0;"/><path d="M887.5,449.9997 L887.5,476.9997 M874.5,457.9997 L900.5,457.9997 M887.5,476.9997 L874.5,491.9997 M887.5,476.9997 L900.5,491.9997 " fill="none" style="stroke: #536366; stroke-width: 2.0;"/><rect fill="#D3D3D3" height="207.9999" style="stroke: #536366; stroke-width: 1.0;" width="10" x="428" y="144.9999"/><polygon fill="#00AED2" points="416,140.9999,426,144.9999,416,148.9999,420,144.9999" style="stroke: #00AED2; stroke-width: 1.0;"/><line style="stroke: #00AED2; stroke-width: 3.0;" x1="149" x2="422" y1="144.9999" y2="144.9999"/><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="190" x="156" y="137.7999">query via REST/gRPC</text><path d="M8,117 L8,150 L144,150 L144,127 L134,117 L8,117 " fill="#FFFFFF" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M134,117 L134,127 L144,127 L134,117 " fill="#FFFFFF" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="115" x="14" y="140.7999">REST / gRPC</text><polygon fill="#00AED2" points="547,220.9999,557,224.9999,547,228.9999,551,224.9999" style="stroke: #00AED2; stroke-width: 1.0;"/><line style="stroke: #00AED2; stroke-width: 3.0; stroke-dasharray: 2.0,2.0;" x1="438" x2="553" y1="224.9999" y2="224.9999"/><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="97" x="445" y="217.7999">read model</text><path d="M564,160.9999 L564,265.9999 L741,265.9999 L741,170.9999 L731,160.9999 L564,160.9999 " fill="#FFFFFF" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M731,160.9999 L731,170.9999 L741,170.9999 L731,160.9999 " fill="#FFFFFF" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="133" x="570" y="184.7999">./models.config</text><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="153" x="570" y="208.7999">./digit_classifier/1</text><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="156" x="570" y="232.7999">./digit_classifier/2</text><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="148" x="570" y="256.7998">./digit_matcher/1</text><line style="stroke: #00AED2; stroke-width: 3.0; stroke-dasharray: 2.0,2.0;" x1="438" x2="480" y1="301.9998" y2="301.9998"/><line style="stroke: #00AED2; stroke-width: 3.0; stroke-dasharray: 2.0,2.0;" x1="480" x2="480" y1="301.9998" y2="314.9998"/><line style="stroke: #00AED2; stroke-width: 3.0; stroke-dasharray: 2.0,2.0;" x1="439" x2="480" y1="314.9998" y2="314.9998"/><polygon fill="#00AED2" points="449,310.9998,439,314.9998,449,318.9998,445,314.9998" style="stroke: #00AED2; stroke-width: 1.0;"/><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="87" x="445" y="294.7998">run model</text><polygon fill="#00AED2" points="160,348.9998,150,352.9998,160,356.9998,156,352.9998" style="stroke: #00AED2; stroke-width: 1.0;"/><line style="stroke: #00AED2; stroke-width: 3.0;" x1="154" x2="432" y1="352.9998" y2="352.9998"/><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="146" x="166" y="345.7998">return prediction</text><polygon fill="#00AED2" points="570,386.9998,560,390.9998,570,394.9998,566,390.9998" style="stroke: #00AED2; stroke-width: 1.0;"/><line style="stroke: #00AED2; stroke-width: 3.0;" x1="564" x2="886.5" y1="390.9998" y2="390.9998"/><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="244" x="576" y="383.7998">add/update/rollback models</text><!--MD5=[c434cb2099d1c6a57a0c08ffb78aeb2f]
+@startuml
+skinparam shadowing false
+skinparam DefaultFontName Panton
+skinparam DefaultFontSize 20
+
+skinparam actor {
+        BackgroundColor white
+        BorderColor #536366
+        FontColor  #536366
+        }
+
+skinparam note {
+        BorderColor white
+        BackgroundColor white
+        FontColor #536366
+}
+
+skinparam entity {
+        BackgroundColor lightgray
+        BorderColor #536366
+        FontColor  #00aed2
+        }
+
+skinparam database {
+        BackgroundColor lightgray
+        BorderColor #536366
+        FontColor #536366
+}
+
+skinparam sequence {
+        ArrowColor #00aed2
+        ArrowThickness 3
+        LifeLineBorderColor #536366
+        LifeLineBAckgroundColor lightgray
+        GroupBackgroundColor #f0f0f0
+        GroupBorderColor #f0f0f0
+        BoxBorderColor #f4f4f4
+        BoxBackgroundColor #f4f4f4
+        BoxFontColor #536366
+}
+
+skinparam BoxPadding 200
+
+
+actor "User" as User
+box "deployment"
+entity "**TF** **Serving**" as TFServing
+database "File System" as FileStorage
+end box
+actor "Data Scientist" as DataScientist
+
+User -> TFServing ++: query via REST/gRPC
+note left
+        REST / gRPC
+end note
+TFServing - -> FileStorage: read model
+note right
+        ./models.config
+        ./digit_classifier/1
+        ./digit_classifier/2
+        ./digit_matcher/1
+end note
+TFServing - -> TFServing: run model
+User <- TFServing - -: return prediction
+FileStorage <- DataScientist: add/update/rollback models
+
+@enduml
+
+PlantUML version 1.2019.13(Tue Dec 10 18:18:29 CET 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.6+10-suse-1.1-x8664
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="594px" preserveAspectRatio="none" style="width:513px;height:594px;" version="1.1" viewBox="0 0 513 594" width="513px" zoomAndPan="magnify"><defs/><g><ellipse cx="242.5" cy="20" fill="#000000" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#FFFFFF" height="44" rx="12.5" ry="12.5" style="stroke: #536366; stroke-width: 1.5;" width="250" x="117.5" y="50"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="230" x="127.5" y="78.8">choose α  and β randomly</text><rect fill="#F0F0F0" height="306.9999" style="stroke: #F0F0F0; stroke-width: 2.0;" width="465" x="10" y="150.7"/><path d="M168,151.7 L168,167.6999 L158,177.6999 L10,177.6999 " fill="none" style="stroke: #F0F0F0; stroke-width: 2.0;"/><text fill="#536366" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="13" y="170.5">gradient descent</text><rect fill="#FFFFFF" height="44" rx="12.5" ry="12.5" style="stroke: #536366; stroke-width: 1.5;" width="277" x="104" y="194.6999"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="77" x="119" y="223.4999">compute</text><text fill="#536366" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="97" x="201" y="223.4999">predictions</text><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="68" x="303" y="223.4999">ỹ₁,…,ỹₙ</text><rect fill="#FFFFFF" height="44" rx="12.5" ry="12.5" style="stroke: #536366; stroke-width: 1.5;" width="272" x="106.5" y="258.6999"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="77" x="121.5" y="287.4999">compute</text><text fill="#536366" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="35" x="203.5" y="287.4999">loss</text><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="125" x="243.5" y="287.4999">L=∑ᵢ(yᵢ-ỹᵢ)²</text><rect fill="#FFFFFF" height="44" rx="12.5" ry="12.5" style="stroke: #536366; stroke-width: 1.5;" width="349" x="68" y="337.6999"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="77" x="83" y="366.4999">compute</text><text fill="#536366" font-family="Panton" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="165" y="366.4999">gradients</text><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="155" x="252" y="366.4999">∂L/∂α  and ∂L/∂β</text><rect fill="#FFFFFF" height="44" rx="12.5" ry="12.5" style="stroke: #536366; stroke-width: 1.5;" width="445" x="20" y="401.6999"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="420" x="35" y="430.4999">update  α ← α-η⋅∂L/∂α  and β ← β-η⋅∂ ∂L/∂β</text><polygon fill="#FFFFFF" points="242.5,114,254.5,126,242.5,138,230.5,126,242.5,114" style="stroke: #536366; stroke-width: 1.5;"/><polygon fill="#FFFFFF" points="200.5,483.3998,284.5,483.3998,296.5,495.3998,284.5,507.3998,200.5,507.3998,188.5,495.3998,200.5,483.3998" style="stroke: #536366; stroke-width: 1.5;"/><text fill="#536366" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="84" x="200.5" y="502.1998">Proceed?</text><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="22" x="316.5" y="490.1998">no</text><ellipse cx="242.5" cy="572.3998" fill="#FFFFFF" rx="11" ry="11" style="stroke: #000000; stroke-width: 1.0;"/><ellipse cx="242.5" cy="572.3998" fill="#000000" rx="6" ry="6" style="stroke: #7F7F7F; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="30" y2="50"/><polygon fill="#536366" points="238.5,40,242.5,50,246.5,40,242.5,44" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="238.6999" y2="258.6999"/><polygon fill="#536366" points="238.5,248.6999,242.5,258.6999,246.5,248.6999,242.5,252.6999" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="302.6999" y2="337.6999"/><polygon fill="#536366" points="238.5,327.6999,242.5,337.6999,246.5,327.6999,242.5,331.6999" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="381.6999" y2="401.6999"/><polygon fill="#536366" points="238.5,391.6999,242.5,401.6999,246.5,391.6999,242.5,395.6999" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="138" y2="194.6999"/><polygon fill="#536366" points="238.5,184.6999,242.5,194.6999,246.5,184.6999,242.5,188.6999" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="296.5" x2="487" y1="495.3998" y2="495.3998"/><polygon fill="#536366" points="483,318.1999,487,308.1999,491,318.1999,487,314.1999" style="stroke: #536366; stroke-width: 1.5;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="487" x2="487" y1="126" y2="495.3998"/><line style="stroke: #536366; stroke-width: 1.5;" x1="487" x2="254.5" y1="126" y2="126"/><polygon fill="#536366" points="264.5,122,254.5,126,264.5,130,260.5,126" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="445.6999" y2="483.3998"/><polygon fill="#536366" points="238.5,473.3998,242.5,483.3998,246.5,473.3998,242.5,477.3998" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="94" y2="114"/><polygon fill="#536366" points="238.5,104,242.5,114,246.5,104,242.5,108" style="stroke: #536366; stroke-width: 1.0;"/><line style="stroke: #536366; stroke-width: 1.5;" x1="242.5" x2="242.5" y1="507.3998" y2="561.3998"/><polygon fill="#536366" points="238.5,551.3998,242.5,561.3998,246.5,551.3998,242.5,555.3998" style="stroke: #536366; stroke-width: 1.0;"/><text fill="#000000" font-family="Panton" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="32" x="246.5" y="539.8998">yes</text><!--MD5=[15882458b7d4985603798b22c16b095c]
+@startuml
+
+skinparam shadowing false
+skinparam DefaultFontName Panton
+skinparam DefaultFontSize 20
+
+
+skinparam FontSize 16
+
+skinparam ActivityDiamond {
+        BackgroundColor white
+        BorderColor #536366
+        FontColor  #536366
+        }
+
+skinparam Activity {
+        ArrowColor #536366
+        BackgroundColor white
+        BorderColor #536366
+        FontColor  #536366
+        }
+
+skinparam partition {
+        BackgroundColor #f0f0f0
+        BorderColor #f0f0f0
+        FontColor #536366
+}
+start
+:choose α  and β randomly;
+repeat
+partition "**gradient descent**" {
+                : compute **predictions** ỹ₁,…,ỹₙ;
+                : compute **loss** L=∑ᵢ(yᵢ-ỹᵢ)²;
+                : compute **gradients** ∂L/∂α  and ∂L/∂β;
+                : update  α ← α-η⋅∂L/∂α  and β ← β-η⋅∂ ∂L/∂β;
+        }
+repeat while (Proceed?) is (    no)
+-> yes;
+stop
+@enduml
+
+PlantUML version 1.2019.13(Tue Dec 10 18:18:29 CET 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.6+10-suse-1.1-x8664
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
