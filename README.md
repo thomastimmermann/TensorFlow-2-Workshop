@@ -24,4 +24,4 @@ dependency hell. I recommend to
    ```
    
 
-- or go to the repo website and click [![Binder](slides/html/img/binder_badge.svg){width="12%"}](https://mybinder.org/v2/gh/thomastimmermann/TensorFlow-2-Workshop/master)
+- or go to the repo website and click https://mybinder.org/v2/gh/thomastimmermann/TensorFlow-2-Workshop/master
