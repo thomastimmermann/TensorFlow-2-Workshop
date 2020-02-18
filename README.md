@@ -23,4 +23,5 @@ dependency hell. I recommend to
    pip install -r requirements.txt
    ```
    
-   Here, I assume you are on a Unix system. This procedure may easily fill 1GB of your drive.
+
+- or go to the repo website and click [![Binder](slides/html/img/binder_badge.svg){width="12%"}](https://mybinder.org/v2/gh/thomastimmermann/TensorFlow-2-Workshop/master)
