@@ -20,4 +20,4 @@ tensorflow-serving-api==2.0.0
 tensorflow-transform==0.15.0
 
 jupyter==1.0.0
-jupyterlab==1.2.5
+jupyterlab==1.2.21
